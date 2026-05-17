@@ -8,27 +8,28 @@ sequenceDiagram
 	
 	browser-->>server: POST /new_note (creates and sends new note to the server)
 	activate server
-	server-->>browser: HTML document
+	server-->>browser: 302 Redirect to /notes
 	deactivate server
+
+	browser-->>server: GET /notes
+	activate server
+	server-->>browser: HTML document
 
 	browser-->>server: GET /main.css
 	activate server
-	server-->>browser: the css file
+	server-->>browser: the CSS file
 	deactivate server
 
 	browser-->>server: GET /main.js
-	active server
-	server-->>browser: the JavaScripte file
+	activate server
+	server-->>browser: the JavaScript file
 	deactivate server
 
-	The browser starts executing the Javascript code that fetches the JSON from the server
+	Note right of browser:The browser starts executing the Javascript code that fetches the JSON 	from the server
 
-	browser-->>server: GET /data.jsaon
-	active-->>browser: ("content": "monkey", "date": "2026-05-17T06:04:43.124Z")
+	browser-->>server: GET /data.json
+	activate server
+	server-->>browser: POST /("content": "monkey", "date": "2026-05-17T06:04:43.124Z")
 	deactivate server
 
-	The browser executes the callback function that renders the notesa
-
-	
-
-	
+	Note right of browser: The browser executes the callback function that renders the notesa
