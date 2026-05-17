@@ -36,7 +36,7 @@ sequenceDiagram
 	Note right of browser: The browser executes the callback function that renders the notes
 
 
-	Part0.0.5
+	Part0.0.5-0.6
 	
 sequenceDiagram
 	participant user
@@ -70,5 +70,3 @@ sequenceDiagram
 	activate server
 	server-->>browser: 201 created
 	deactivate server
-
-	Part0.0.6
