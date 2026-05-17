@@ -21,6 +21,8 @@ sequenceDiagram
 	server-->>browser: the JavaScripte file
 	deactivate server
 
+	The browser starts executing the Javascript code that fetches the JSON from the server
+
 	
 
 	
