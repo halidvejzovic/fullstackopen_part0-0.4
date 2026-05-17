@@ -34,3 +34,41 @@ sequenceDiagram
 	deactivate server
 
 	Note right of browser: The browser executes the callback function that renders the notes
+
+
+	Part0.0.5
+	
+sequenceDiagram
+	participant user
+	participant browser
+	participant server
+
+	browser-->>server: Get /spa (page loads)
+	activate server
+	server-->>browser: HTML loads
+	deactivate server
+
+	browser-->>server: Get /main.css (page loads)
+	activate server
+	server-->>browser: CSS loads
+	deactivate server	
+
+	browser-->>server: GET /spa.js (page loads)
+	activate server
+	server-->>browser: Javascript loads
+	deactivate server	
+
+	browser-->>server: GET /data.json (page loads)
+	activate server
+	server-->>browser: JSON data
+	deactivate server
+
+	user-->>browser: user writes in notes
+	user-->>browser: user klicks save
+
+	browser-->>server: POST /new_note_spa
+	activate server
+	server-->>browser: 201 created
+	deactivate server
+
+	Part0.0.6
